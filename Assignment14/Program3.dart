@@ -1,19 +1,21 @@
 import 'dart:io';
 void main(){
+  stdout.write("Enter rows: ");
   int row=int.parse(stdin.readLineSync()!);
-  int column=int.parse(stdin.readLineSync()!);
-  int mean=(column+1)~/2;
   int num=1;
-  for(int i=0;i<row;i++){
-    for(int j=1;j<=column;j++){
-      if(j<mean-i || j>mean+i){
-        stdout.write("  ");
-      }
-      else{
-        stdout.write("$num ");
-        num++;
-      }
+  for(int i=1; i<=row; i++){
+    for(int sp=i; sp<=row;sp++){
+      stdout.write("\t");
     }
-    stdout.writeln();
+    for(int j=1; j<i;j++){
+      stdout.write("$num\t");
+      num++;
+    }
+    for(int j=1; j<=i;j++){
+      stdout.write("$num\t");
+      num++;
+    }
+
+    print("");
   }
 }
